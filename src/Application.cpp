@@ -66,7 +66,21 @@ int main(int argc, char* argv[])
 
         test::Test* currentTest = nullptr;
         test::TestMenu* testMenu = new test::TestMenu(currentTest);
-        currentTest = testMenu;
+        
+        if (argc > 1)
+        {
+            if (std::string(argv[1]) == "clearcolor")
+                currentTest = new test::TestClearColor;
+            else if (std::string(argv[1]) == "texture2d")
+                currentTest = new test::TestTexture2D;
+            else
+            {
+                currentTest = testMenu;
+                std::cout << "Warning: Test not found" << std::endl;
+            }
+        }
+        else
+            currentTest = testMenu;
 
         testMenu->RegisterTest<test::TestClearColor>("Clear Color");
         testMenu->RegisterTest<test::TestTexture2D>("Texture 2D");
@@ -85,7 +99,7 @@ int main(int argc, char* argv[])
             {
                 currentTest->OnUpdate(0.0f);
                 currentTest->OnRender();
-                ImGui::Begin("Test");
+                ImGui::Begin("Tests");
                 if(currentTest != testMenu && ImGui::Button("<-"))
                 {
                     delete currentTest;
