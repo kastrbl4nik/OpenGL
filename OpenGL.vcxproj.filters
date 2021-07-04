@@ -69,6 +69,9 @@
     <ClCompile Include="src\tests\Test.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\tests\TestTexture2D.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\Basic.shader" />
@@ -1380,6 +1383,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\tests\TestClearColor.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tests\TestTexture2D.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
