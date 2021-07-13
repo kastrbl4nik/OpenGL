@@ -21,6 +21,7 @@
 #include <imgui/imgui_impl_opengl3.h>
 #include <tests/TestClearColor.h>
 #include <tests/TestTexture2D.h>
+#include <tests/TestShaders.h>
 
 int main(int argc, char* argv[])
 {
@@ -73,6 +74,8 @@ int main(int argc, char* argv[])
                 currentTest = new test::TestClearColor;
             else if (std::string(argv[1]) == "texture2d")
                 currentTest = new test::TestTexture2D;
+            else if (std::string(argv[1]) == "shaders")
+                currentTest = new test::TestShaders;
             else
             {
                 currentTest = testMenu;
@@ -84,6 +87,7 @@ int main(int argc, char* argv[])
 
         testMenu->RegisterTest<test::TestClearColor>("Clear Color");
         testMenu->RegisterTest<test::TestTexture2D>("Texture 2D");
+        testMenu->RegisterTest<test::TestShaders>("Shaders!");
 
 
         while (!glfwWindowShouldClose(window))
